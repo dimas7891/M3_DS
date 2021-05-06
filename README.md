@@ -1,6 +1,5 @@
 # M3_DS
- => Tool Ini Adalah tool pertama saya, dan tool ini juga masih recode karna saya masih pemula dan baru memahami coding php, 
-     M3_DS menggunakan program mdk3.
+ => 
 
 # Cara Install M3_DS
   ```
